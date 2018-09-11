@@ -21,7 +21,7 @@ We can inspect any of the Quorum nodes by using `geth attach` to open the Geth J
 
 It is recommended to use separate terminal windows for each node we are inspecting.  In each terminal, ensure you are in the `path/to/7nodes` directory, then:
 
-- If you aren't already running the 7nodes example, in terminal 1 run `./{consensus}-init.sh` followed by `./{consensus}-start.sh`
+- If you aren't already running the 7nodes example, in terminal 1 run `./init.sh {consensus}` followed by `./start.sh {consensus}`
 - In terminal 1 run `geth attach ipc:qdata/dd1/geth.ipc` to attach to node 1
 - In terminal 2 run `geth attach ipc:qdata/dd4/geth.ipc` to attach to node 4
 - In terminal 3 run `geth attach ipc:qdata/dd7/geth.ipc` to attach to node 7
@@ -192,7 +192,7 @@ Additional contracts can be found in `quorum-examples/examples/7nodes/` for you 
 It is easy to reduce the number of nodes used in the example.  You may want to do this for memory usage reasons or just to experiment with a different network configuration.
 
 To run the example with 5 nodes instead of 7, the following changes need to be made:
-1. In __`raft-start.sh`__:
+1. In __`start.sh {consensus}`__:
  
     Comment out the following lines used to start Quorum nodes 6 & 7
    ```sh
@@ -204,7 +204,7 @@ To run the example with 5 nodes instead of 7, the following changes need to be m
 
     Change the 2 instances of `for i in {1..7}` to `for i in {1..5}`
     
-After making these changes, the `raft-init.sh` and `raft-start.sh` scripts can be run as normal.
+After making these changes, the `init.sh {consensus}` and `start.sh {consensus}` scripts can be run as normal.
 
 `private-contract.js` will also need to be updated as this is set up to send a transaction from node 1 to node 7.  To update the private contract to instead send to node 5, the following steps need to be followed:
 

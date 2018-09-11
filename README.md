@@ -76,22 +76,22 @@ All logs and temporary data are written to the `qdata` folder.
 1. Navigate to the 7nodes example, configure the Quorum nodes and initialize accounts & keystores:
     ```sh
     cd path/to/7nodes
-    ./raft-init.sh
+    ./init.sh raft
     ```
 2. Start the Quorum and privacy manager nodes (Constellation or Tessera):
     - If running in Vagrant:
         ```sh
-        ./raft-start.sh
+        ./start.sh raft
         ```
         By default, Constellation will be used as the privacy manager.  To use Tessera run the following:
         ```
-        ./raft-start.sh tessera
+        ./start.sh raft tessera
         ```
-        By default, `raft-start.sh` will look in `/home/vagrant/tessera/tessera-app/target/tessera-app-{version}-app.jar` for the Tessera jar.
+        By default, `start.sh` will look in `/home/vagrant/tessera/tessera-app/target/tessera-app-{version}-app.jar` for the Tessera jar.
     
     - If running locally with Tessera:
         ```
-        ./raft-start.sh tessera --tesseraOptions "--tesseraJar /path/to/tessera-app.jar"
+        ./start.sh raft tessera --tesseraOptions "--tesseraJar /path/to/tessera-app.jar"
         ``` 
     
         The Tessera jar location can also be specified by setting the environment variable `TESSERA_JAR`.
@@ -101,18 +101,18 @@ All logs and temporary data are written to the `qdata` folder.
 #### Using Istanbul BFT consensus
 To run the example using __Istanbul BFT__ consensus use the corresponding commands:
 ```sh
-istanbul-init.sh
-istanbul-start.sh
-istanbul-start.sh tessera
+init.sh istanbul
+start.sh istanbul
+start.sh istanbul tessera
 stop.sh
 ```
 
 #### Using Clique POA consensus
 To run the example using __Clique POA__ consensus use the corresponding commands:
 ```sh
-clique-init.sh
-clique-start.sh
-clique-start.sh tessera
+init.sh clique
+start.sh clique
+start.sh clique tessera
 stop.sh
 ```
 
